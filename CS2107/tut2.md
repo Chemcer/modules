@@ -4,7 +4,7 @@
 
 ### Analysis
 
-Since the qn hints the use of same IV, ($C_1 = IV \oplus  P_x$) and ($C_2 = IV \oplus P_y$) then ($C_1 \oplus C_2 = P_x \oplus IV \oplus P_y \oplus IV = P_x \oplus P_y$) 
+Since the qn hints the use of same IV, $C_1 = IV \oplus  P_x$ and $C_2 = IV \oplus P_y$ then $C_1 \oplus C_2 = P_x \oplus IV \oplus P_y \oplus IV = P_x \oplus P_y$
 
 ### Code
 
