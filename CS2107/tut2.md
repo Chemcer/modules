@@ -35,6 +35,8 @@ Applied DES 4 time with 4 unique 56 bits keys, and hint is to use meet in the mi
 
 2nd pair of keys, same as the above
 
+Edit for clarity, 1st pair implies encrypt lefty right. Second pair 2nd encryption before meeting in the middle
+
 As such, total cases to consider is $(2^{56})^2 \cdot 2 = 2^{113}$
 
 ## Question 3 insecure IV implementation, length reveals information
@@ -47,7 +49,7 @@ Buy and sell actions have 1 block only whereas sell everything and hold and see 
 
 ### 3b CTR mode
 
-Since IV resets to 16 bits of 0 after every restart, then attackers can retrieve the very first time the phone boots up and retrieve all the plain text
+Since IV resets to 16 bits of 0 after every restart and each actions have unique length. Take block 0 of each and xor one another, then xor with the action plain text to reveal some info
 
 ## Question 4 Padding Oracle
 
@@ -63,7 +65,7 @@ for t in range(0xff):
     payload = ''.join(IV)
     # send payload to server
     if server accpts:
-        print(payload)   
+        print(payload ^ t)   
 ```
 
 ## Question 5 Padding Oracle
@@ -75,3 +77,5 @@ Server rejects implies the byte that has been flipped is in the padding region, 
 Server accepts implies the byte that has been flipped is not in the padding region, increase the index
 
 Repeat until it converges to a value.
+
+Edit for clairty, bit flip C1
